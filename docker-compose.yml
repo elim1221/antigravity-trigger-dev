@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  # Hono Web Server Service
+  # Note: Trigger.dev workflows should be deployed to Trigger.dev cloud using `npm run deploy`
+  web-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: trigger-web-server
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    volumes:
+      # Mount source code for development
+      - .:/app
+      - /app/node_modules
+    networks:
+      - trigger-network
+    command: npm run start:web
+
+networks:
+  trigger-network:
+    driver: bridge

@@ -1,0 +1,40 @@
+{
+  "author": "",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "@hono/node-server": "^1.19.7",
+    "@trigger.dev/sdk": "4.3.2",
+    "dotenv": "^16.4.5",
+    "hono": "^4.11.3",
+    "resend": "^6.6.0",
+    "rss-parser": "^3.13.0",
+    "zod": "^3.23.8"
+  },
+  "description": "Agentic Workflow Framework using Trigger.dev and Gemini",
+  "devDependencies": {
+    "@types/node": "^20.14.9",
+    "trigger.dev": "^3.0.0-beta.46",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
+  },
+  "keywords": [
+    "trigger.dev",
+    "agentic",
+    "gemini",
+    "automation"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "antigravity-trigger-framework",
+  "scripts": {
+    "create-workflow": "ts-node src/agent/builder.ts",
+    "deploy": "npx trigger.dev@latest deploy",
+    "dev": "npx trigger.dev@latest dev",
+    "dev:web": "ts-node src/webapp/index.ts",
+    "start:web": "ts-node src/webapp/index.ts",
+    "snapshot": "ts-node src/agent/snapshot.ts --dev",
+    "snapshot:dev": "ts-node src/agent/snapshot.ts --dev",
+    "snapshot:prod": "ts-node src/agent/snapshot.ts --prod"
+  },
+  "version": "1.0.0"
+}
